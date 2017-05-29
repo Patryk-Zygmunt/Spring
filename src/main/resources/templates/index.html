@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>HELLO</title>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <!--  <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+            th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+            rel="stylesheet" media="screen"/>-->
+    <!--
+        <link rel="stylesheet" th:href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    -->
+
+
+</head>
+
+<body style="background-color:darkcyan">
+<div class="container">
+
+    <div class="row">
+
+            <nav class="navbar navbar-inverse" style="margin: 0;width:100%;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#"><h style="color: #985f0d ;padding-top:20px;">WITAJ</h></a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html" th:href="@{/}"  >Home</a></li>
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="showAllCars.html" th:href="@{/showAllCars}">Samochody</a></li>
+                        <li><a href="show" th:href="@{/showAllUsers}">Użytkownicy</a></li>
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li><a href="hello.html" th:href="@{/signUp}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    <div class="row">
+    <div class="col-lg-6" style="background-color: #cccccc;opacity: 0.8;">
+        <h3 class="text-center" style="color: #080808">LICZBA SAMOCHODÓW: <p th:text="${carsAmount}"></p></h3>
+    </div>
+
+    <div class="col-lg-6" style="background-color: #f5e79e;opacity:0.8;">
+        <h3 class="text-center" style="color: #2e6da4">LICZBA UŻYTKOWNIKÓW: <p th:text="${usersAmount}"></p></h3>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6" style="background-color: #a94449"><img class="img-responsive" style="width:100%;left: 0; margin-left: 0;position: absolute;" src="" th:src="@{/resources/templates/car.jpg}" /></div>
+        <div class="col-lg-6" style="background-color: #a94442"><h4 class="text-center">Zarejerstruj sie już dziś <span class="glyphicon glyphicon-user"></span></h4></div>
+    </div>
+</div>
+</body>
+</html>

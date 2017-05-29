@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>HELLO</title>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <!--  <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+            th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+            rel="stylesheet" media="screen"/>-->
+    <!--
+        <link rel="stylesheet" th:href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    -->
+
+
+</head>
+
+<body style="background-color:darkcyan">
+<div class="container">
+
+    <div class="row">
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><h style="color: #985f0d ;padding-top:20px;" th:text="${message}">WITAJ</h></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html" th:href="@{/}">Home</a></li>
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/hello.html" th:href="@{/signUp}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+
+
+
+
+    <form th:action="@{/rentCar}" method="post">
+
+        <div class="col-lg-6" style="background-color: lightcyan;">
+            <h style="align-text: center;color: #985f0d;font-size: 30px;"> Free Cars : </h>
+
+            <table class=" table table-hover" style="background-color: lightcyan;">
+
+                <thead>
+                <tr>
+                    <td >Choose</td>
+                    <td >Model</td>
+                    <td>Number</td>
+                    <td>Color</td>
+                </tr>
+                </thead>
+
+
+
+
+                <tr th:each="car : ${cars}">
+                    <td><input class="checkbox" type="checkbox" th:value="${car.Nr}" /></td>
+                    <td th:text="${car.Model}"></td>
+                    <td th:text="${car.Nr}"></td>
+                    <td style="" th:bgcolor="${car.Color}"></td>
+                </tr>
+
+            </table>
+
+        </div>
+        <button type="submit" class=" btn btn-danger">Rent</button>
+    </form>
+        <table class=" table table-hover" style="background-color: lightcyan;">
+
+            <thead>
+            <tr>
+
+                <td >Model</td>
+                <td>Number</td>
+                <td>Color</td>
+                <td >Rent</td>
+            </tr>
+            </thead>
+
+
+
+
+            <tr th:each="car : ${carsRent}"  th:each="t : ${time}">
+
+                <td th:text="${car.Model}"></td>
+                <td th:text="${car.Nr}"></td>
+                <td style="" th:bgcolor="${car.Color}"></td>
+                <td th:text="${t}></td>
+            </tr>
+
+        </table>
+
+
+
+
+</div>
+</body>
+</html>
